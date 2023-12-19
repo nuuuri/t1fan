@@ -1,8 +1,8 @@
 import type { Metadata } from 'next';
-import './globals.css';
-import Link from 'next/link';
 
+import './globals.css';
 import { FontClassNames } from './font';
+import LNB from './LNB';
 
 export const metadata: Metadata = {
   title: 'Create Next App',
@@ -17,22 +17,22 @@ export default function RootLayout({
   return (
     <html lang="en" className={FontClassNames}>
       <body className="flex w-screen h-screen overflow-hidden tracking-wider cursor-default">
-        <div className="w-60 p-5 bg-zinc-100">
-          <Link
-            href="/"
-            className="mb-2 text-2xl font-silk-screen font-bold tracking-tight">
-            T1 Fan Page
-          </Link>
-          <Link href="/videos">
-            <div>영상 모아보기</div>
-          </Link>
-          <Link href="/articles">
-            <div>기사 모아보기</div>
-          </Link>
-          <Link href="/calendar">
-            <div>캘린더</div>
-          </Link>
-        </div>
+        <LNB
+          menus={[
+            {
+              text: '영상 모아보기',
+              path: '/videos',
+            },
+            {
+              text: '기사 모아보기',
+              path: '/articles',
+            },
+            {
+              text: '캘린더',
+              path: '/calendar',
+            },
+          ]}
+        />
         <div className="w-[calc(100%-240px)] p-5">{children}</div>
       </body>
     </html>
