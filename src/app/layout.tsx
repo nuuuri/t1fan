@@ -1,12 +1,8 @@
 import type { Metadata } from 'next';
-import { Roboto_Condensed } from 'next/font/google';
 import './globals.css';
 import Link from 'next/link';
 
-const roboto = Roboto_Condensed({
-  subsets: ['latin'],
-  weight: ['300', '400', '700'],
-});
+import { FontClassNames } from './font';
 
 export const metadata: Metadata = {
   title: 'Create Next App',
@@ -19,11 +15,12 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en">
-      <body
-        className={`${roboto.className} flex w-screen h-screen overflow-hidden tracking-wider cursor-default`}>
+    <html lang="en" className={FontClassNames}>
+      <body className="flex w-screen h-screen overflow-hidden tracking-wider cursor-default">
         <div className="w-60 p-5 bg-zinc-100">
-          <Link href="/" className="mb-2 text-2xl font-bold">
+          <Link
+            href="/"
+            className="mb-2 text-2xl font-silk-screen font-bold tracking-tight">
             T1 Fan Page
           </Link>
           <Link href="/videos">
