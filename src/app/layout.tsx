@@ -1,6 +1,7 @@
 import type { Metadata } from 'next';
 import { Roboto_Condensed } from 'next/font/google';
 import './globals.css';
+import Link from 'next/link';
 
 const roboto = Roboto_Condensed({
   subsets: ['latin'],
@@ -22,10 +23,18 @@ export default function RootLayout({
       <body
         className={`${roboto.className} flex w-screen h-screen overflow-hidden tracking-wider cursor-default`}>
         <div className="w-60 p-5 bg-zinc-100">
-          <div className="mb-2 text-2xl font-bold">T1 Fan Page</div>
-          <div>영상 모아보기</div>
-          <div>기사 모아보기</div>
-          <div>캘린더</div>
+          <Link href="/" className="mb-2 text-2xl font-bold">
+            T1 Fan Page
+          </Link>
+          <Link href="/videos">
+            <div>영상 모아보기</div>
+          </Link>
+          <Link href="/articles">
+            <div>기사 모아보기</div>
+          </Link>
+          <Link href="/calendar">
+            <div>캘린더</div>
+          </Link>
         </div>
         <div className="w-[calc(100%-240px)] p-5">{children}</div>
       </body>
