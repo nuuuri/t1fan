@@ -14,12 +14,29 @@ const getData = async () => {
 };
 
 export default async function VideoColletionPage() {
-  const videos = await getData();
+  const { videos } = await getData();
+
+  console.log(videos);
 
   return (
     <div>
       <div>영상 모아보기</div>
-      <div>{videos?.map((video: any, idx: number) => <div>{idx}</div>)}</div>
+      <div>
+        {videos?.map(
+          (
+            video: {
+              id: { kind: string; videoId: string };
+              snippet: { title: string };
+            },
+            idx: number,
+          ) => (
+            <div key={video.id.videoId}>
+              <div>{idx}</div>
+              <div>{video.snippet.title}</div>
+            </div>
+          ),
+        )}
+      </div>
     </div>
   );
 }

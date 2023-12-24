@@ -17,7 +17,7 @@ export async function GET() {
       },
     );
 
-    const data = res.data.json();
+    const data = res.data;
 
     return new Response(JSON.stringify({ videos: data.items }), {
       status: 200,
