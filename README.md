@@ -24,7 +24,9 @@
 
 - [ ] 영상 모아보기
     - [x] YouTube Data API 연동
-    - [ ] **YouTube Data API 할당량 최적화**
+    - [x] **YouTube Data API 할당량 최적화** -> Redis 연동
+    - [ ] 중복 영상 제거
+    - [ ] 바로가기 목록 UI 추가
 
 - [ ] 기사 모아보기
 
