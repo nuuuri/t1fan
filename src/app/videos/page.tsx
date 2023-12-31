@@ -16,26 +16,24 @@ const getData = async () => {
 export default async function VideoColletionPage() {
   const { videos } = await getData();
 
-  console.log(videos);
-
   return (
     <div>
-      <div>영상 모아보기</div>
       <div>
-        {videos?.map(
-          (
-            video: {
-              id: { kind: string; videoId: string };
-              snippet: { title: string };
-            },
-            idx: number,
-          ) => (
-            <div key={video.id.videoId}>
-              <div>{idx}</div>
+        {videos.map((video: any, idx: number) => (
+          // eslint-disable-next-line react/no-array-index-key
+          <div key={idx}>
+            <div className="flex">
+              <div className="w-7">{idx + 1}</div>
               <div>{video.snippet.title}</div>
             </div>
-          ),
-        )}
+            <iframe
+              title={video.snippet.title}
+              src={`https://www.youtube.com/embed/${video.id.videoId}`}
+              width={720}
+              height={360}
+            />
+          </div>
+        ))}
       </div>
     </div>
   );

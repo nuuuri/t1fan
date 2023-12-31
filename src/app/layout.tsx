@@ -33,7 +33,9 @@ export default function RootLayout({
             },
           ]}
         />
-        <div className="w-[calc(100%-240px)] p-5">{children}</div>
+        <div className="w-[calc(100%-240px)] p-5 overflow-y-auto">
+          {children}
+        </div>
       </body>
     </html>
   );
